@@ -3,4 +3,11 @@
     <string name="title_activity_info">InfoActivity</string>
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="title_activity_leagues">LeaguesActivity</string>
+    <string name="game_csgo">CSGO</string>
+    <string name="game_dota">Dota 2</string>
+    <string name="game_ow">Overwatch</string>
+    <string name="game_pubg">PUBG</string>
+    <string name="game_lol">League of Legends</string>
+    <string name="game_title">Games</string>
+    <string name="game_description">Choose your game</string>
 </resources>
