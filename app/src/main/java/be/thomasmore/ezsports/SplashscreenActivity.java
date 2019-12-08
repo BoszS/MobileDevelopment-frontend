@@ -17,7 +17,7 @@ public class SplashscreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // This method will be executed once the timer is over
-                Intent i = new Intent(SplashscreenActivity.this, MainActivity.class);
+                Intent i = new Intent(SplashscreenActivity.this, GamesActivity.class);
                 startActivity(i);
                 finish();
             }
