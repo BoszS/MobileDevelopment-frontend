@@ -141,7 +141,7 @@
                             android:layout_height="wrap_content"
                             android:onClick="game_click"
                             android:src="@drawable/lol"
-                            android:tag="leagueoflegends" />
+                            android:tag="lol" />
 
                         <TextView
                             android:id="@+id/lol_label"

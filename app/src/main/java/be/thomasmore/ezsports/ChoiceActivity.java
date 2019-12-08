@@ -31,14 +31,17 @@ public class ChoiceActivity extends AppCompatActivity {
 
     private void setGame(String game){
         this.game = game;
-        toon(game);
     }
 
     public void leagues_click(View v) {
     }
 
     public void players_click(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("game", this.game);
         Intent intent = new Intent(this, PlayersActivity.class);
+        intent.putExtras(bundle);
+
         startActivity(intent);
     }
 
