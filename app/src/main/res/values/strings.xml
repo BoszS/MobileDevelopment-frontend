@@ -18,6 +18,9 @@
 
     <string name="player_title">Players</string>
 
+    <string name="search_league">Search for league ..</string>
+    <string name="search_player">Search for player ..</string>
+
     <string name="title_activity_games">Games</string>
     <string name="title_activity_choice">Pick a choice</string>
     <string name="title_activity_players">Players</string>

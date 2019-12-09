@@ -1,5 +1,6 @@
 package be.thomasmore.ezsports;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -34,6 +35,12 @@ public class ChoiceActivity extends AppCompatActivity {
     }
 
     public void leagues_click(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("game", this.game);
+        Intent intent = new Intent(this, LeaguesActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 
     public void players_click(View v) {
