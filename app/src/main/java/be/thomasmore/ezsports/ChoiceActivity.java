@@ -52,6 +52,18 @@ public class ChoiceActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void teams_click(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("game", this.game);
+        Intent intent = new Intent(this, TeamsActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }
+
+
+
+
     private void toon(String tekst) {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }

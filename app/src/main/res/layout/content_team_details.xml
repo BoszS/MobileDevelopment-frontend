@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/game-description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/teamDetail_description"
+                android:textSize="40dp"
+
+                />
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@color/colorAccent" />
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/teamDetailLogo"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingLeft="3dp"
+                    android:paddingTop="2dp"
+                    android:textSize="35sp"
+                    android:onClick="teamDetail_click"
+                    android:textColor="#00aadd" />
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary" />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/teamDetailName"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:textSize="25sp"
+                    android:onClick="teamDetail_click"
+                    android:textColor="#b10000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/teamPlayersTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/player_title"
+                android:textSize="25dp"
+
+                />
+
+            <ListView
+                android:id="@+id/listViewTeamPlayers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </ListView>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

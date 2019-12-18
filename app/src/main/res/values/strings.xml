@@ -3,6 +3,8 @@
     <string name="title_activity_info">InfoActivity</string>
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="title_activity_leagues">LeaguesActivity</string>
+    <string name="title_activity_teams">TeamsActivity</string>
+    <string name="title_activity_teamDetails">TeamDetailsActivity</string>
 
     <string name="game_csgo">CSGO</string>
     <string name="game_dota">Dota 2</string>
@@ -15,11 +17,17 @@
     <string name="choice_title">Choose</string>
     <string name="choice_leagues">Leagues</string>
     <string name="choice_players">Players</string>
+    <string name="choice_teams">Teams</string>
 
     <string name="player_title">Players</string>
+    <string name="teamDetail_title">Details</string>
+
+    <string name="teamDetail_description">Team details</string>
+
 
     <string name="search_league">Search for league ..</string>
     <string name="search_player">Search for player ..</string>
+    <string name="search_team">Search for team ..</string>
 
     <string name="title_activity_games">Games</string>
     <string name="title_activity_choice">Pick a choice</string>

@@ -71,6 +71,16 @@
                         android:padding="15dp"
                         android:text="@string/choice_players" />
 
+                    <Button
+                        android:id="@+id/knopTeams"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:onClick="teams_click"
+                        android:padding="15dp"
+                        android:text="@string/choice_teams" />
+
                 </LinearLayout>
 
             </LinearLayout>

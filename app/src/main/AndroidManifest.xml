@@ -26,6 +26,14 @@
             android:label="@string/title_activity_leagues"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".TeamDetailActivity"
+            android:label="@string/title_activity_teamDetails"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TeamsActivity"
+            android:label="@string/title_activity_teams"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".SplashscreenActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>

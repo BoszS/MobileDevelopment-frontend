@@ -11,19 +11,18 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.Locale;
 
 import be.thomasmore.ezsports.R;
 import be.thomasmore.ezsports.models.League;
-import be.thomasmore.ezsports.models.Player;
+import be.thomasmore.ezsports.models.Team;
 
-public class LeaguesAdapter extends ArrayAdapter<League> {
+public class TeamsAdapter extends ArrayAdapter<Team> {
 
     private final Context context;
-    private final List<League> values;
+    private final List<Team> values;
 
-    public LeaguesAdapter(Context context, List<League> values) {
-        super(context, R.layout.leaguelistviewitem, values);
+    public TeamsAdapter(Context context, List<Team> values) {
+        super(context, R.layout.teamlistviewitem, values);
         this.context = context;
         this.values = values;
     }
@@ -34,13 +33,13 @@ public class LeaguesAdapter extends ArrayAdapter<League> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.leaguelistviewitem, parent, false);
+        View rowView = inflater.inflate(R.layout.teamlistviewitem, parent, false);
 
-        final TextView name = (TextView)rowView.findViewById(R.id.leaguename);
-        final ImageView leagueLogo = (ImageView)rowView.findViewById(R.id.leaguelogo);
+        final TextView name = (TextView)rowView.findViewById(R.id.teamname);
+        final ImageView teamLogo = (ImageView)rowView.findViewById(R.id.teamlogo);
 
         name.setText(values.get(position).getName());
-        Picasso.get().load(values.get(position).getImage_url()).into(leagueLogo);
+        Picasso.get().load(values.get(position).getImage_url()).into(teamLogo);
 
         return rowView;
     }
