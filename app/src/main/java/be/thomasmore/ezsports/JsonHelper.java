@@ -172,4 +172,28 @@ public class JsonHelper {
 
         return team;
     }
+
+    public Player getPlayer(String jsonTekst) {
+        Player player = new Player();
+
+        try {
+            JSONObject jsonObjectPlayer = new JSONObject(jsonTekst);
+
+            player.setId(jsonObjectPlayer.getInt("id"));
+            player.setName(jsonObjectPlayer.getString("name"));
+            player.setFirst_name(jsonObjectPlayer.getString("first_name"));
+            player.setLast_name(jsonObjectPlayer.getString("last_name"));
+            player.setHometown(jsonObjectPlayer.getString("hometown"));
+            player.setImage_url(jsonObjectPlayer.getString("image_url"));
+
+            JSONObject jsonObjectTeam = jsonObjectPlayer.getJSONObject("current_team");
+            player.setTeam_name(jsonObjectTeam.getString("name"));
+            player.setTeam_image_url(jsonObjectTeam.getString("image_url"));
+
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+
+        return player;
+    }
 }

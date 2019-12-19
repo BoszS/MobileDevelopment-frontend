@@ -1,5 +1,6 @@
 package be.thomasmore.ezsports;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -46,22 +48,28 @@ public class PlayersActivity extends AppCompatActivity {
     }
 
     private void leesPlayers() {
-        HttpReader httpReader = new HttpReader();
+        final HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
             @Override
             public void resultReady(String result) {
                 JsonHelper jsonHelper = new JsonHelper();
                 final List<Player> players = jsonHelper.getPlayers(result);
 
-                PlayersAdapter playersAdapter = new PlayersAdapter(getApplicationContext(), players);
+                final PlayersAdapter playersAdapter = new PlayersAdapter(getApplicationContext(), players);
 
                 final ListView listViewPlayers = (ListView)findViewById(R.id.listViewPlayers);
                 listViewPlayers.setAdapter(playersAdapter);
 
+                listViewPlayers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        toonPlayerDetail(playersAdapter.getItem(position).getId());
+                    }
+                });
+
             }
         });
         httpReader.execute("https://api.pandascore.co/" + game + "/players?token=" + apiKey);
-
 
     }
 
@@ -95,5 +103,16 @@ public class PlayersActivity extends AppCompatActivity {
 
     private void toon(String tekst) {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
+    }
+
+    private void toonPlayerDetail(int id) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("playerId", id);
+        bundle.putString("game", game);
+
+        Intent intent = new Intent(this, PlayerDetailActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 }

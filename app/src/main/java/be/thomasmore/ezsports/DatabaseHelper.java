@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.thomasmore.ezsports.models.Player;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Version
@@ -65,7 +67,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //-------------------------------------------------------------------------------------------------
     //  CRUD Operations
     //-------------------------------------------------------------------------------------------------
-    public long insertPrognostic() {
+    public long insertPlayer(Player player) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put("name", player.getName());
+        values.put("first_name", player.getFirst_name());
+        values.put("last_name", player.getLast_name());
+        values.put("hometown", player.getHometown());
+
+        long id = db.insert("player", null, values);
+
+        db.close();
+        return id;
     }
 }

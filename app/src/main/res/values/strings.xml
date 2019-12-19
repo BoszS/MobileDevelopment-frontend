@@ -33,4 +33,6 @@
     <string name="title_activity_choice">Pick a choice</string>
     <string name="title_activity_players">Players</string>
     <string name="title_activity_matches">Upcoming matches</string>
+
+    <string name="title_activity_player_detail">Details</string>
 </resources>
