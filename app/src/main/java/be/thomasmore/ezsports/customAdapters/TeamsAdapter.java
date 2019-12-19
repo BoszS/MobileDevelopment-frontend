@@ -38,11 +38,17 @@ public class TeamsAdapter extends ArrayAdapter<Team> {
         final TextView name = (TextView)rowView.findViewById(R.id.teamname);
         final ImageView teamLogo = (ImageView)rowView.findViewById(R.id.teamlogo);
 
+
+        name.setTag(values.get(position).getSlug());
+        teamLogo.setTag(values.get(position).getSlug());
+
         name.setText(values.get(position).getName());
         Picasso.get().load(values.get(position).getImage_url()).into(teamLogo);
 
         return rowView;
     }
+
+
 
 
 }

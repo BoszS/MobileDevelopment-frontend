@@ -19,9 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:text="Empire"
+            android:text="@string/title_activity_teams"
             android:textSize="125px"
-            android:onClick="teamDetail_click"
             />
 
         <View

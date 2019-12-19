@@ -8,6 +8,7 @@ public class Team {
     private String image_url;
     private String acronym;
     private String name;
+    private String slug;
     private List<Player> players = new ArrayList<>();
 
     public Team() {
@@ -33,6 +34,14 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getImage_url() {

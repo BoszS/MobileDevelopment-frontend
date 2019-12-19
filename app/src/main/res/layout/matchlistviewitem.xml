@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:onClick="teamDetail_click"
+    >
+
+
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/matchname"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="25sp"
+        android:textColor="#b10000" />
+
+
+
+</RelativeLayout>

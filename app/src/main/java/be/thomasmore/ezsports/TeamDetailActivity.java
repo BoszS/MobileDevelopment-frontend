@@ -1,36 +1,28 @@
 package be.thomasmore.ezsports;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
-import java.util.List;
-
 import be.thomasmore.ezsports.customAdapters.PlayersAdapter;
-import be.thomasmore.ezsports.customAdapters.TeamsAdapter;
 import be.thomasmore.ezsports.models.Team;
 
 public class TeamDetailActivity extends AppCompatActivity {
 
     String apiKey = "E_TxcWHZfSn61dJTrk8W8xz5cKWKvVp0BqAqOvHXBZ5pA8VgWmI";
     String game;
-    String teamName;
-    private Team selectedTeam;
+    int teamId;
 
-    TeamsAdapter teamsAdapter;
 
 
     @Override
@@ -40,18 +32,17 @@ public class TeamDetailActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        EditText filter = (EditText) findViewById(R.id.search_filter);
-
 
         Bundle bundle = getIntent().getExtras();
         String game = bundle.getString("game");
-        String teamName = bundle.getString("teamName");
+        int teamId = bundle.getInt("teamId");
+
 
         setGame(game);
-        setTeamName(teamName);
+
+        setTeamId(teamId);
 
         leesTeam();
-        teamLayout();
 
 
 
@@ -60,44 +51,49 @@ public class TeamDetailActivity extends AppCompatActivity {
         this.game = game;
     }
 
-    private void setTeamName(String teamName){
-        this.teamName = teamName;
+    private void setTeamId(int teamId){
+        this.teamId = teamId;
     }
 
 
-    private void leesTeam() {
+    public void leesTeam() {
         HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
             @Override
             public void resultReady(String result) {
                 JsonHelper jsonHelper = new JsonHelper();
-                final Team team = jsonHelper.getTeam(result);
+                Team team = jsonHelper.getTeam(result);
 
-                selectedTeam = team;
+                teamLayout(team);
+
             }
         });
 
 
-        httpReader.execute("https://api.pandascore.co/" + game + "/teams/" + teamName + "?token=" + apiKey);
+        httpReader.execute("https://api.pandascore.co/" + game + "/teams/?filter[id]=" + teamId + "&token=" + apiKey);
+
 
 
     }
 
-    private void teamLayout() {
-        String teamId = NumberFormat.getInstance().format(selectedTeam.getId());
+    private void teamLayout(Team team) {
+
+        setContentView(R.layout.content_team_details);
 
         TextView textViewName = (TextView)findViewById(R.id.teamDetailName);
-        textViewName.setText(selectedTeam.getName());
+        textViewName.setText(team.getName());
 
         ImageView imageViewTeamLogo = (ImageView)findViewById(R.id.teamDetailLogo);
-        Picasso.get().load(selectedTeam.getImage_url()).into(imageViewTeamLogo);
+        Picasso.get().load(team.getImage_url()).into(imageViewTeamLogo);
 
-        PlayersAdapter playersAdapter = new PlayersAdapter(getApplicationContext(), selectedTeam.getPlayers());
+        PlayersAdapter playersAdapter = new PlayersAdapter(getApplicationContext(), team.getPlayers());
 
-        final ListView listViewTeamPlayers = (ListView)findViewById(R.id.listViewTeamPlayers);
+        final ListView listViewPlayers = (ListView)findViewById(R.id.listViewTeamPlayers);
 
-        listViewTeamPlayers.setAdapter(playersAdapter);
+        listViewPlayers.setAdapter(playersAdapter);
+
     }
+
 
 
 }

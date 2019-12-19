@@ -6,10 +6,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.ezsports.models.League;
+import be.thomasmore.ezsports.models.Match;
 import be.thomasmore.ezsports.models.Player;
 import be.thomasmore.ezsports.models.Team;
 
@@ -71,6 +73,32 @@ public class JsonHelper {
         return leagues;
     }
 
+    public List<Match> getMatches(String jsonTekst) {
+        List<Match> matches = new ArrayList<Match>();
+
+        try {
+            JSONArray jsonArray = new JSONArray(jsonTekst);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectPlayer = jsonArray.getJSONObject(i);
+
+                Match match = new Match();
+
+                match.setId(jsonObjectPlayer.getInt("id"));
+                match.setName(jsonObjectPlayer.getString("name"));
+
+
+                matches.add(match);
+            }
+
+        }
+        catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+
+        return matches;
+    }
+
 
 
     public List<Team> getTeams(String jsonTekst) {
@@ -89,20 +117,6 @@ public class JsonHelper {
                 team.setImage_url(jsonObjectTeam.getString("image_url"));
                 team.setAcronym(jsonObjectTeam.getString("acronym"));
 
-                JSONArray jsonArrayPlayers = jsonObjectTeam.getJSONArray("players");
-                for (int x = 0; x < jsonArrayPlayers.length(); x++) {
-                    JSONObject jsonObjectPlayer = jsonArrayPlayers.getJSONObject(x);
-
-                    Player player = new Player();
-
-                    player.setId(jsonObjectPlayer.getInt("id"));
-                    player.setName(jsonObjectPlayer.getString("name"));
-                    player.setFirst_name(jsonObjectPlayer.getString("first_name"));
-                    player.setLast_name(jsonObjectPlayer.getString("last_name"));
-                    player.setHometown(jsonObjectPlayer.getString("hometown"));
-                    player.setImage_url(jsonObjectPlayer.getString("image_url"));
-                }
-
                 teams.add(team);
             }
 
@@ -117,31 +131,42 @@ public class JsonHelper {
 
     public Team getTeam(String jsonTekst) {
         Team team = new Team();
+        List<Player> players = new ArrayList<Player>();
 
         try {
-            JSONObject jsonObjectTeam = new JSONObject(jsonTekst);
-            JSONObject players = new JSONObject(jsonObjectTeam.getString("players"));
+            JSONArray jsonArray = new JSONArray(jsonTekst);
 
-            team.setId(jsonObjectTeam.getInt("id"));
-            team.setName(jsonObjectTeam.getString("name"));
-            team.setImage_url(jsonObjectTeam.getString("image_url"));
-            team.setAcronym(jsonObjectTeam.getString("acronym"));
 
-            JSONArray jsonArrayPlayers = jsonObjectTeam.getJSONArray("players");
-            for (int x = 0; x < jsonArrayPlayers.length(); x++) {
-                JSONObject jsonObjectPlayer = jsonArrayPlayers.getJSONObject(x);
+                JSONObject jsonObjectTeam = jsonArray.getJSONObject(0);
 
-                Player player = new Player();
+                team.setId(jsonObjectTeam.getInt("id"));
+                team.setName(jsonObjectTeam.getString("name"));
+                team.setImage_url(jsonObjectTeam.getString("image_url"));
+                team.setAcronym(jsonObjectTeam.getString("acronym"));
 
-                player.setId(jsonObjectPlayer.getInt("id"));
-                player.setName(jsonObjectPlayer.getString("name"));
-                player.setFirst_name(jsonObjectPlayer.getString("first_name"));
-                player.setLast_name(jsonObjectPlayer.getString("last_name"));
-                player.setHometown(jsonObjectPlayer.getString("hometown"));
-                player.setImage_url(jsonObjectPlayer.getString("image_url"));
-            }
+                JSONArray playersArray = jsonObjectTeam.getJSONArray("players");
 
-        } catch (JSONException e) {
+                for (int i = 0; i < playersArray.length(); i++) {
+                    JSONObject jsonObjectPlayer = playersArray.getJSONObject(i);
+
+                    Player player = new Player();
+
+                    player.setId(jsonObjectPlayer.getInt("id"));
+                    player.setName(jsonObjectPlayer.getString("name"));
+                    player.setFirst_name(jsonObjectPlayer.getString("first_name"));
+                    player.setLast_name(jsonObjectPlayer.getString("last_name"));
+                    player.setHometown(jsonObjectPlayer.getString("hometown"));
+                    player.setImage_url(jsonObjectPlayer.getString("image_url"));
+
+                    players.add(player);
+                }
+
+                team.setPlayers(players);
+
+
+
+        }
+        catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
 

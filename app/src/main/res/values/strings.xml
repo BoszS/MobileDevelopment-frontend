@@ -32,4 +32,5 @@
     <string name="title_activity_games">Games</string>
     <string name="title_activity_choice">Pick a choice</string>
     <string name="title_activity_players">Players</string>
+    <string name="title_activity_matches">Upcoming matches</string>
 </resources>

@@ -1,10 +1,12 @@
 package be.thomasmore.ezsports;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -76,6 +78,14 @@ public class TeamsActivity extends AppCompatActivity {
                 final ListView listViewTeams = (ListView)findViewById(R.id.listViewTeams);
 
                 listViewTeams.setAdapter(teamsAdapter);
+
+
+                listViewTeams.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView parentView, View childView, int position, long id) {
+                        teamDetail_click(teams.get(position).getId());
+                    }
+                });
             }
         });
 
@@ -88,16 +98,12 @@ public class TeamsActivity extends AppCompatActivity {
 
     }
 
-    public void teamDetail_click(View v) {
 
 
-        String teamName = v.getTag().toString();
-        teamName = teamName.replace(' ', '-');
-        teamName = teamName.toLowerCase();
-
+    public void teamDetail_click(int id) {
         Bundle bundle = new Bundle();
+        bundle.putInt("teamId", id);
         bundle.putString("game", this.game);
-        bundle.putString("teamName", teamName);
         Intent intent = new Intent(this, TeamDetailActivity.class);
         intent.putExtras(bundle);
 
