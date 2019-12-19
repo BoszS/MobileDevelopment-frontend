@@ -65,7 +65,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //-------------------------------------------------------------------------------------------------
     //  CRUD Operations
     //-------------------------------------------------------------------------------------------------
-    public long insertPrognostic() {
-
-    }
+//    public long insertPrognostic() {
+//    }
 }

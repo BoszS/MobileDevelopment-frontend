@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/match-details-title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/matchDetail_description"
+                    android:textSize="40dp"
+
+                    />
+
+                <View
+                    android:layout_width="150dp"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorAccent" />
+
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/team1Logo"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="3dp"
+                        android:paddingTop="2dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="35sp"
+                        android:clickable="false"
+                        android:onClick="teamDetail_click"
+                        android:textColor="#00aadd" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/versus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="125dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:textSize="25sp"
+                        android:text="Vs."
+                        android:textColor="#b10000" />
+
+                    <ImageView
+                        android:id="@+id/team2Logo"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="3dp"
+                        android:paddingTop="2dp"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="35sp"
+                        android:clickable="false"
+                        android:onClick="teamDetail_click"
+                        android:textColor="#00aadd" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/matchDetailName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+
+                    />
+
+                <View
+                    android:layout_width="300dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/matchInfoTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="@string/matchDetail_title"
+                    android:textSize="25dp"
+
+                    />
+
+                <View
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/matchDetailDate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/matchDetailTime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
+
+                    />
+
+                <View
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/match_league_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="25dp"
+                        android:text="@string/match_league_title"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="left"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <ImageView
+                            android:id="@+id/matchDetailLeagueLogo"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:paddingLeft="3dp"
+                            android:paddingTop="2dp"
+                            android:textSize="35sp"
+                            android:clickable="false"
+                            android:layout_gravity="center_horizontal"
+                            android:onClick="teamDetail_click"
+                            android:textColor="#00aadd" />
+
+                        <TextView
+                            android:id="@+id/matchDetailLeague"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textSize="15dp"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="left"
+                            />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matchSerieTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"
+                        android:text="@string/match_serie_title"
+                        android:textSize="25dp"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/matchDetailSerie"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"
+                        android:textSize="25dp"
+
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="100dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/matchTournamentTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"
+                        android:text="@string/match_tournament_title"
+                        android:textSize="25dp"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/matchDetailTournament"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"
+                        android:textSize="25dp"
+
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

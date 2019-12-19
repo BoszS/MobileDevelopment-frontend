@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
-                android:text="@string/player_title"
+                android:text="@string/choice_matches"
                 android:textSize="125px" />
 
             <View

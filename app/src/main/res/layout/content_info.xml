@@ -8,4 +8,123 @@
     tools:context=".InfoActivity"
     tools:showIn="@layout/activity_info">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/choice-title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/info_title"
+                android:textSize="125px" />
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:background="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="50dp"
+            >
+
+            <TextView
+                android:id="@+id/appinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="left"
+                android:paddingBottom="20dp"
+                android:text="@string/info_app"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="2dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/madeby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="20dp"
+                android:gravity="left"
+                android:text="@string/info_madeby"
+                android:textSize="15dp" />
+            <TextView
+                android:id="@+id/infofor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:gravity="left"
+                android:text="@string/info_for"
+                android:textSize="15dp" />
+
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/contacttitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="@string/info_contact_title"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/contactJeroen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="@string/info_email_Jeroen"
+                android:textSize="15dp" />
+            <TextView
+                android:id="@+id/contactBosz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="@string/info_email_Bosz"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:onClick="teamDetail_click"
+    android:orientation="vertical"
     >
 
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+
+            >
+            <ImageView
+                android:id="@+id/opponentlogo1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="3dp"
+                android:paddingTop="2dp"
+                android:textSize="35sp"
+                android:textColor="#00aadd" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/opponentname1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textSize="25sp"
+                android:textColor="#b10000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/opponentlogo2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="3dp"
+                android:paddingTop="2dp"
+                android:textSize="35sp"
+                android:textColor="#00aadd" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/opponentname2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textSize="25sp"
+                android:textColor="#b10000" />
+
+        </LinearLayout>
+    </LinearLayout>
+
     <TextView
         android:gravity="center"
-        android:id="@+id/matchname"
-        android:layout_width="250dp"
+        android:id="@+id/matchdate"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -18,4 +85,5 @@
 
 
 
-</RelativeLayout>
+
+</LinearLayout>
