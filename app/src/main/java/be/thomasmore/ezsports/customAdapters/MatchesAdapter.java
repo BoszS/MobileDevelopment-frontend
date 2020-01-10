@@ -8,12 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import be.thomasmore.ezsports.R;
 import be.thomasmore.ezsports.models.Player;
 
 import be.thomasmore.ezsports.models.Match;
+import be.thomasmore.ezsports.models.Team;
 
 public class MatchesAdapter extends ArrayAdapter<Match> {
 
@@ -33,9 +36,37 @@ public class MatchesAdapter extends ArrayAdapter<Match> {
 
         View rowView = inflater.inflate(R.layout.matchlistviewitem, parent, false);
 
-        final TextView name = (TextView)rowView.findViewById(R.id.matchname);
+        final TextView opponentname1 = (TextView)rowView.findViewById(R.id.opponentname1);
+        final TextView opponentname2 = (TextView)rowView.findViewById(R.id.opponentname2);
+        final ImageView opponentlogo1 = (ImageView)rowView.findViewById(R.id.opponentlogo1);
+        final ImageView opponentlogo2 = (ImageView)rowView.findViewById(R.id.opponentlogo2);
+        final TextView date = (TextView)rowView.findViewById(R.id.matchdate);
 
-        name.setText(values.get(position).getName());
+        if (values.get(position).getOpponents().size() == 2){
+            opponentname1.setText(values.get(position).getOpponents().get(0).getName());
+            Picasso.get().load(values.get(position).getOpponents().get(0).getImage_url()).into(opponentlogo1);
+
+            opponentname2.setText(values.get(position).getOpponents().get(1).getName());
+            Picasso.get().load(values.get(position).getOpponents().get(1).getImage_url()).into(opponentlogo2);
+
+
+        } else if (values.get(position).getOpponents().size() == 1) {
+
+            opponentname1.setText(values.get(position).getOpponents().get(0).getName());
+            Picasso.get().load(values.get(position).getOpponents().get(0).getImage_url()).into(opponentlogo1);
+
+            opponentname2.setText("TBD");
+
+
+        } else {
+            opponentname1.setText("TBD");
+            opponentname2.setText("TBD");
+        }
+
+
+        String begindate = values.get(position).getDate();
+        String begintime = values.get(position).getTime();
+        date.setText(begindate + " " + begintime);
 
         return rowView;
     }

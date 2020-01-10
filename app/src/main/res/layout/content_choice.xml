@@ -81,6 +81,26 @@
                         android:padding="15dp"
                         android:text="@string/choice_teams" />
 
+                    <Button
+                        android:id="@+id/knopMatches"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:onClick="matches_click"
+                        android:padding="15dp"
+                        android:text="@string/choice_matches" />
+
+                    <Button
+                        android:id="@+id/knopInfo"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:onClick="info_click"
+                        android:padding="15dp"
+                        android:text="@string/info_title" />
+
                 </LinearLayout>
 
             </LinearLayout>

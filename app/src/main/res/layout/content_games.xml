@@ -55,13 +55,16 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="75dp"
+                >
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="75dp"
+                    android:gravity="center_horizontal"
 
                     >
 
@@ -74,8 +77,8 @@
 
                         <ImageView
                             android:id="@+id/csgo-knop"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
                             android:onClick="game_click"
                             android:src="@drawable/csgo"
                             android:tag="csgo" />
@@ -102,8 +105,8 @@
 
                         <ImageView
                             android:id="@+id/dota-knop"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
                             android:onClick="game_click"
                             android:src="@drawable/dota2"
                             android:tag="dota2" />
@@ -126,7 +129,9 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -137,9 +142,10 @@
 
                         <ImageView
                             android:id="@+id/lol-knop"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
                             android:onClick="game_click"
+                            android:layout_gravity="center_horizontal"
                             android:src="@drawable/lol"
                             android:tag="lol" />
 
@@ -165,11 +171,11 @@
 
                         <ImageView
                             android:id="@+id/ow-knop"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
                             android:onClick="game_click"
                             android:src="@drawable/ow"
-                            android:tag="overwatch" />
+                            android:tag="ow" />
 
                         <TextView
                             android:id="@+id/ow_label"

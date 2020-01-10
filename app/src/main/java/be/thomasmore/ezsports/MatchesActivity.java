@@ -1,6 +1,9 @@
 package be.thomasmore.ezsports;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,16 +46,35 @@ public class MatchesActivity extends AppCompatActivity {
             @Override
             public void resultReady(String result) {
                 JsonHelper jsonHelper = new JsonHelper();
-                final List<Match> matchces = jsonHelper.getMatches(result);
+                final List<Match> matches = jsonHelper.getMatches(result);
 
-                MatchesAdapter matchesAdapter = new MatchesAdapter(getApplicationContext(), matchces);
+                MatchesAdapter matchesAdapter = new MatchesAdapter(getApplicationContext(), matches);
 
                 final ListView listViewMatches = (ListView)findViewById(R.id.listViewMatches);
 
                 listViewMatches.setAdapter(matchesAdapter);
+
+
+                listViewMatches.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView parentView, View childView, int position, long id) {
+                        matchDetails(matches.get(position).getId());
+                    }
+                });
             }
         });
-        httpReader.execute("https://api.pandascore.co/" + game + "/matches?token=" + apiKey);
+        httpReader.execute("https://api.pandascore.co/" + game + "/matches/upcoming?page[size]=30&token=" + apiKey);
+    }
+
+
+    public void matchDetails(int id) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("matchId", id);
+        bundle.putString("game", this.game);
+        Intent intent = new Intent(this, MatchDetailActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 
 }

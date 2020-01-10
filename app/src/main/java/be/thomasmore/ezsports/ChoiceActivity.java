@@ -61,6 +61,24 @@ public class ChoiceActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void matches_click(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("game", this.game);
+        Intent intent = new Intent(this, MatchesActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }
+
+    public void info_click(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("game", this.game);
+        Intent intent = new Intent(this, InfoActivity.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }
+
 
 
 

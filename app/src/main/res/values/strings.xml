@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">EzSports</string>
-    <string name="title_activity_info">InfoActivity</string>
-    <string name="title_activity_splashscreen">SplashscreenActivity</string>
-    <string name="title_activity_leagues">LeaguesActivity</string>
-    <string name="title_activity_teams">TeamsActivity</string>
-    <string name="title_activity_teamDetails">TeamDetailsActivity</string>
+    <string name="title_activity_info">Info</string>
+    <string name="title_activity_splashscreen">Splashscreen</string>
+    <string name="title_activity_leagues">Leagues</string>
+    <string name="title_activity_teams">Teams</string>
+    <string name="title_activity_teamDetails">Team Details</string>
 
     <string name="game_csgo">CSGO</string>
     <string name="game_dota">Dota 2</string>
@@ -14,16 +14,30 @@
     <string name="game_title">Games</string>
     <string name="game_description">Choose your game</string>
 
-    <string name="choice_title">Choose</string>
+    <string name="choice_title">Menu</string>
     <string name="choice_leagues">Leagues</string>
     <string name="choice_players">Players</string>
     <string name="choice_teams">Teams</string>
+    <string name="choice_matches">Upcoming matches</string>
 
     <string name="player_title">Players</string>
     <string name="teamDetail_title">Details</string>
 
     <string name="teamDetail_description">Team details</string>
+    <string name="matchDetail_description">Match details</string>
+    <string name="matchDetail_title">Match info</string>
+    <string name="match_league_title">League:</string>
+    <string name="match_serie_title">Serie:</string>
+    <string name="match_tournament_title">Tournament:</string>
 
+    <string name="info_title">Info</string>
+
+    <string name="info_madeby">Made by: Jeroen Jansen, Bosz Srisan</string>
+    <string name="info_for">for mobile development course at Thomas More Geel</string>
+    <string name="info_contact_title">Contact:</string>
+    <string name="info_email_Jeroen">Jeroen: r0695294@student.thomasmore.be</string>
+    <string name="info_email_Bosz">Bosz: r0707151@student.thomasmore.be</string>
+    <string name="info_app">This is an application designed to easily check future esports events from csgo, League of Legends, Dota 2 or Overwatch. Check leagues, teams, upcoming matches and players using this app</string>
 
     <string name="search_league">Search for league ..</string>
     <string name="search_player">Search for player ..</string>

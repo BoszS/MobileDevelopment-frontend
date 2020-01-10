@@ -13,7 +13,9 @@ import java.util.List;
 import be.thomasmore.ezsports.models.League;
 import be.thomasmore.ezsports.models.Match;
 import be.thomasmore.ezsports.models.Player;
+import be.thomasmore.ezsports.models.Serie;
 import be.thomasmore.ezsports.models.Team;
+import be.thomasmore.ezsports.models.Tournament;
 
 public class JsonHelper {
 
@@ -80,15 +82,37 @@ public class JsonHelper {
             JSONArray jsonArray = new JSONArray(jsonTekst);
 
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectPlayer = jsonArray.getJSONObject(i);
+
+                JSONObject jsonObjectMatch = jsonArray.getJSONObject(i);
 
                 Match match = new Match();
 
-                match.setId(jsonObjectPlayer.getInt("id"));
-                match.setName(jsonObjectPlayer.getString("name"));
+                match.setId(jsonObjectMatch.getInt("id"));
+                match.setName(jsonObjectMatch.getString("name"));
+                match.setBegin_at(jsonObjectMatch.getString("begin_at"));
 
+
+                List<Team> opponents = new ArrayList<Team>();
+                JSONArray opponentsArray = jsonObjectMatch.getJSONArray("opponents");
+
+
+                for (int x = 0; x < opponentsArray.length(); x++) {
+                    JSONObject jsonObjectOpponent = opponentsArray.getJSONObject(x).getJSONObject("opponent");
+
+                    Team opponent = new Team();
+
+                    opponent.setId(jsonObjectOpponent.getInt("id"));
+                    opponent.setName(jsonObjectOpponent.getString("name"));
+                    opponent.setImage_url(jsonObjectOpponent.getString("image_url"));
+
+
+                    opponents.add(opponent);
+                }
+
+                match.setOpponents(opponents);
 
                 matches.add(match);
+
             }
 
         }
@@ -97,6 +121,67 @@ public class JsonHelper {
         }
 
         return matches;
+    }
+
+
+    public Match getMatch(String jsonTekst) {
+        Match match = new Match();
+
+        try {
+            JSONArray jsonArray = new JSONArray(jsonTekst);
+
+
+                JSONObject jsonObjectMatch = jsonArray.getJSONObject(0);
+
+                match.setId(jsonObjectMatch.getInt("id"));
+                match.setName(jsonObjectMatch.getString("name"));
+                match.setBegin_at(jsonObjectMatch.getString("begin_at"));
+
+                JSONObject jsonObjectLeague = jsonObjectMatch.getJSONObject("league");
+                League league = new League();
+                league.setImage_url(jsonObjectLeague.getString("image_url"));
+                league.setName(jsonObjectLeague.getString("name"));
+                match.setLeague(league);
+
+                JSONObject jsonObjectSerie = jsonObjectMatch.getJSONObject("serie");
+                Serie serie = new Serie();
+                serie.setName(jsonObjectSerie.getString("name"));
+                match.setSerie(serie);
+
+                JSONObject jsonObjectTournament = jsonObjectMatch.getJSONObject("tournament");
+                Tournament tournament = new Tournament();
+                tournament.setName(jsonObjectTournament.getString("name"));
+                match.setTournament(tournament);
+
+
+
+                List<Team> opponents = new ArrayList<Team>();
+                JSONArray opponentsArray = jsonObjectMatch.getJSONArray("opponents");
+
+
+                for (int x = 0; x < opponentsArray.length(); x++) {
+                    JSONObject jsonObjectOpponent = opponentsArray.getJSONObject(x).getJSONObject("opponent");
+
+                    Team opponent = new Team();
+
+                    opponent.setId(jsonObjectOpponent.getInt("id"));
+                    opponent.setName(jsonObjectOpponent.getString("name"));
+                    opponent.setImage_url(jsonObjectOpponent.getString("image_url"));
+
+
+                    opponents.add(opponent);
+                }
+
+                match.setOpponents(opponents);
+
+
+
+        }
+        catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+
+        return match;
     }
 
 

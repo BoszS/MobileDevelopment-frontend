@@ -42,6 +42,10 @@
             android:label="@string/title_activity_teams"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".MatchDetailActivity"
+            android:label="@string/title_activity_teams"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".SplashscreenActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
